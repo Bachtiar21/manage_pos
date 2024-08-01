@@ -37,7 +37,7 @@
 				<!-- Jika userRole adalah 1 (Admin) -->
 				<?php if ($userRole['id_role'] == 1) : ?>
 				<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-					<img src="<?= base_url('img/avatars/avatar.jpg') ?>" class="avatar img-fluid rounded-circle me-1" alt="Admin" /> <span class="text-dark">Admin</span>
+					<img src="<?= base_url('img/avatars/avatar.jpg') ?>" class="avatar img-fluid rounded-circle me-1" alt="Admin" /> <span class="text-dark">Staf HCD</span>
 				</a>
 				<!-- Jika userRole adalah 2 (Karyawan) -->
 			  	<?php elseif ($userRole['id_role'] == 2) : ?>
@@ -47,7 +47,7 @@
 				<!-- Jika userRole adalah 3 (Assigner) -->
 				<?php elseif ($userRole['id_role'] == 3) : ?>
 				<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-					<img src="<?= base_url('img/avatars/avatar.jpg') ?>" class="avatar img-fluid rounded-circle me-1" alt="Assigner" /> <span class="text-dark">Assigner</span>
+					<img src="<?= base_url('img/avatars/avatar.jpg') ?>" class="avatar img-fluid rounded-circle me-1" alt="Assigner" /> <span class="text-dark">Assignor</span>
 				</a>
 				<?php else : ?>
                     <li class="sidebar-item">

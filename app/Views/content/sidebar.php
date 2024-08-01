@@ -87,11 +87,11 @@
                             </a>
                         </li>
 
-						<li class="sidebar-item <?= isActive('role', $currentPage) ?>">
+						<!-- <li class="sidebar-item <?= isActive('role', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/role') ?>">
                                 <i class="align-middle" data-feather="users"></i> <span class="align-middle">Role</span>
                             </a>
-                        </li>
+                        </li> -->
 
 						<li class="sidebar-item <?= isActive('objective', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/objective') ?>">
