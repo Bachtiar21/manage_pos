@@ -127,7 +127,7 @@
 					?>
 					<main class="content">
 						<div class="container-fluid p-0">
-							<h5 class="right-aligned" style="float: right">
+							<h5 class="right-aligned" style="float: ri~ght">
 								<a href="#">Home</a> / <a href="#">Karyawan</a> / Dashboard
 							</h5>
 							<h1 class="h3 mb-3"><b>Dashboard Karyawan</b></h1>

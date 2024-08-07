@@ -87,27 +87,15 @@
                             </a>
                         </li>
 
-						<!-- <li class="sidebar-item <?= isActive('role', $currentPage) ?>">
-                            <a class="sidebar-link" href="<?= base_url('/dashboard/role') ?>">
-                                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Role</span>
-                            </a>
-                        </li> -->
-
-						<li class="sidebar-item <?= isActive('objective', $currentPage) ?>">
-                            <a class="sidebar-link" href="<?= base_url('/dashboard/objective') ?>">
-                                <i class="align-middle" data-feather="file"></i> <span class="align-middle">Objective</span>
-                            </a>
-                        </li>
-
-						<li class="sidebar-item <?= isActive('key_result', $currentPage) ?>">
-                            <a class="sidebar-link" href="<?= base_url('/dashboard/key_result') ?>">
-                                <i class="align-middle" data-feather="file"></i> <span class="align-middle">Key Result</span>
+						<li class="sidebar-item <?= isActive('tugas_karyawan', $currentPage) ?>">
+                            <a class="sidebar-link" href="<?= base_url('/dashboard/tugas_karyawan') ?>">
+                                <i class="align-middle" data-feather="file"></i> <span class="align-middle">Tugas Karyawan</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item <?= isActive('rating_output', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/rating_output') ?>">
-                                <i class="align-middle" data-feather="list"></i> <span class="align-middle">Rekap Laporan Pekerjaan</span>
+                                <i class="align-middle" data-feather="list"></i> <span class="align-middle">Rekap Laporan</span>
                             </a>
                         </li>
 

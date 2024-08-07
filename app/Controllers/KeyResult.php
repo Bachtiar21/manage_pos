@@ -10,12 +10,15 @@ use App\Models\RatingOutputModel;
 class KeyResult extends BaseController
 {
 	// Function for Get All Data
-	public function getAllKeyResult(): string
+	public function getAllTugasKaryawan(): string
 	{
+		$objectiveModel = new ObjectiveModel();
 		$krModel = new KeyResultModel();
+	
+		$data['objectives'] = $objectiveModel->getObjectWithRoles();
 		$data['key_results'] = $krModel->getKeyResultWithAssign();
-
-		return view('admin/key_result_view', $data);
+	
+		return view('admin/tugas_karyawan_view', $data);
 	}
 
 	// Function for Get All Data By User

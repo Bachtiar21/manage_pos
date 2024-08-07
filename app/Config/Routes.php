@@ -30,7 +30,8 @@ $routes->get('/dashboard/user/update/(:segment)', 'User::renderPageUpdateUser/$1
 $routes->post('user/update/(:segment)', 'User::updateUser/$1', ['filter' => 'auth']);
 $routes->get('/user/delete/(:num)', 'User::deleteUser/$1', ['filter' => 'auth']);
 
-$routes->get('/dashboard/objective', 'Objective::getAllObject', ['filter' => 'auth']);
+$routes->get('/dashboard/tugas_karyawan', 'KeyResult::getAllTugasKaryawan', ['filter' => 'auth']);
+
 $routes->get('/dashboard/objective/detail/(:segment)', 'Objective::getObjectiveById/$1', ['filter' => 'auth']);
 $routes->get('/dashboard/objective/add', 'Objective::renderPageCreateObjective', ['filter' => 'auth']);
 $routes->post('/objective/create', 'Objective::createObjective', ['filter' => 'auth']);
@@ -38,7 +39,6 @@ $routes->get('/dashboard/objective/update/(:segment)', 'Objective::renderPageUpd
 $routes->post('objective/update/(:segment)', 'Objective::updateObjective/$1', ['filter' => 'auth']);
 $routes->get('/objective/delete/(:num)', 'Objective::deleteObjective/$1', ['filter' => 'auth']);
 
-$routes->get('/dashboard/key_result', 'KeyResult::getAllKeyResult', ['filter' => 'auth']);
 $routes->get('/dashboard/key_result/add', 'KeyResult::renderPageCreateKeyResult', ['filter' => 'auth']);
 $routes->post('/key_result/create', 'KeyResult::createKeyResult', ['filter' => 'auth']);
 $routes->get('/dashboard/key_result/update/(:segment)', 'KeyResult::renderPageUpdateKeyResultByAdmin/$1', ['filter' => 'auth']);

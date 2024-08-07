@@ -68,6 +68,29 @@
                                         disabled/>
                                     </div>
                                 </div>
+
+                                <div class="row mt-1">
+                                    <div class="col-md-6">
+                                            <!-- Inputan Tanggal Lahir -->
+                                            <h5 class="card-title mt-2">Tanggal Lahir</h5>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                id="tgl_lahir" name="tgl_lahir"
+                                                value="<?= esc($user['tgl_lahir']) ?>"
+                                                disabled/>
+                                        </div>
+                                    <div class="col-md-6">
+                                        <!-- Inputan Kode Angkatan -->
+                                        <h5 class="card-title mt-2">Kode Angkatan</h5>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="kode_angkatan" name="kode_angkatan"
+                                        value="<?= esc($user['kode_angkatan']) ?>"
+                                        disabled/>
+                                    </div>
+                                </div>
                                 
                                 <!-- Button Submit -->
                                 <div

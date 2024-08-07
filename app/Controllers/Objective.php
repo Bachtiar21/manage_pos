@@ -8,14 +8,6 @@ use App\Models\ObjectiveModel;
 
 class Objective extends BaseController
 {
-	// Function for Get All Data
-	public function getAllObject(): string
-	{
-		$objectiveModel = new ObjectiveModel();
-		$data['objectives'] = $objectiveModel->getObjectWithRoles();
-
-		return view('admin/objective_view', $data);
-	}
 
 	// Function for Get Data By Id
 	public function getObjectiveById($idObjective): string 

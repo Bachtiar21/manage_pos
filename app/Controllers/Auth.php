@@ -19,8 +19,10 @@ class Auth extends BaseController
 		$data = [
 			'nama_user' => $this->request->getVar('nama_user'),
 			'username' => $this->request->getVar('username'),
-			'password' => $this->request->getVar('password'),
+			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
 			'no_hp' => $this->request->getVar('no_hp'),
+			'tgl_lahir' => $this->request->getVar('tgl_lahir'),
+			'kode_angkatan' => $this->request->getVar('kode_angkatan'),
 			'id_role' => 2,
 		];
 
