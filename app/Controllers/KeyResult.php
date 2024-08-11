@@ -85,7 +85,7 @@ class KeyResult extends BaseController
 		$data = $this->request->getPost();
 
 		if ($krModel->createKeyResultsModel($data)) {
-			return redirect()->to('/dashboard/key_result')->with('message', 'Key result berhasil ditambahkan');
+			return redirect()->to('/dashboard/tugas_karyawan')->with('message', 'Key result berhasil ditambahkan');
 		} else {
 			return redirect()->back()->withInput()->with('errors', $krModel->errors());
 		}
@@ -217,7 +217,7 @@ class KeyResult extends BaseController
 		if ($krModel->deleteKeyResultsModel($id)) {
 			// Debugging message
 			echo "Key result deleted successfully";
-			return redirect()->to('/dashboard/key_result')->with('message', 'Key result berhasil dihapus');
+			return redirect()->to('/dashboard/tugas_karyawan')->with('message', 'Key result berhasil dihapus');
 		} else {
 			// Debugging message
 			echo "Failed to delete key result";

@@ -6,11 +6,19 @@ use App\Models\RatingOutputModel;
 
 class RatingOutput extends BaseController
 {
-	// Function Get All RatingOuput
-	public function getAllRatingOuput(): string
+	// // Function Get All RatingOuput
+	// public function getAllRatingOuput(): string
+	// {
+	// 	$roModel = new RatingOutputModel();
+	// 	$data['rating_outputs'] = $roModel->getAllRatingOutput();
+
+	// 	return view('admin/rekap_rate_view', $data);
+	// }
+
+	public function getAllRatingOuput() : string
 	{
 		$roModel = new RatingOutputModel();
-		$data['rating_outputs'] = $roModel->getAllRatingOutput();
+		$data['rating_outputs'] = $roModel->findAll();
 
 		return view('admin/rekap_rate_view', $data);
 	}

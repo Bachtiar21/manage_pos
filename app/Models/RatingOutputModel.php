@@ -14,7 +14,7 @@ class RatingOutputModel extends Model
     {
         return $this->db->table('users')
             ->select('users.nama_user, key_results.key_result, rating_outputs.*')
-            ->join('key_results', 'users.id_user = key_results.id_karyawan', 'inner')
+            ->join('key_results', 'users.id_user = key_results.id_assignor', 'inner')
             ->join('rating_outputs', 'key_results.id_kr = rating_outputs.id_kr', 'inner')
             ->where('users.id_role', 2)
             ->get()

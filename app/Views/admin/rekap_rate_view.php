@@ -23,8 +23,6 @@
                                     <thead>
                                         <tr style="text-align: center; vertical-align: middle">
                                             <th hidden></th>
-                                            <th>Karyawan</th>
-                                            <th>Key Result</th>
                                             <th>Ouput Target Q1</th>
                                             <th>Rating Value Q1</th>
                                             <th>OKR Score Q1</th>
@@ -40,12 +38,6 @@
                                         <?php foreach ($rating_outputs as $rating_output): ?>
                                             <tr>
                                                 <td hidden></td>
-                                                <td>
-                                                    <?= $rating_output['nama_user']?>
-                                                </td>
-                                                <td>
-                                                    <?= $rating_output['key_result']?>
-                                                </td>
                                                 <td>
                                                     <?= $rating_output['output_target_q1']?>
                                                 </td>
