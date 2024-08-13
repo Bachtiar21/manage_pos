@@ -36,6 +36,9 @@
                                             <th>Nama</th>
                                             <th>Role</th>
                                             <th>Nomor HP</th>
+                                            <th>Jabatan</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -54,6 +57,13 @@
                                                 <td>
                                                     <?= $user['no_hp'] ?>
                                                 </td>
+                                                <td>
+                                                    <?= $user['jabatan'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $user['username'] ?>
+                                                </td>
+                                                <td>**********</td>
                                                 <td>
                                                     <a href="<?= base_url('/dashboard/user/detail/' . $user['id_user']) ?>" class="btn btn-info">Detail</a>
                                                     <a href="<?= base_url('/dashboard/user/update/' . $user['id_user']) ?>" class="btn btn-warning">Edit</a>

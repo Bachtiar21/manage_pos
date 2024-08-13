@@ -18,6 +18,15 @@ class UserModel extends Model
             ->findAll();
     }
 
+    // Untuk Get All Karyawan
+    public function getKaryawan()
+    {
+        return $this->select('users.*, roles.nama_role')
+            ->join('roles', 'roles.id_role = users.id_role')
+            ->where('users.id_role', 2)
+            ->findAll();
+    }
+
     // Untuk Create User
     public function createUser($data)
     {

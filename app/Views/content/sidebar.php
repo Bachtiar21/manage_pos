@@ -83,13 +83,13 @@
 
                         <li class="sidebar-item <?= isActive('user', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/user') ?>">
-                                <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
+                                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Kelola Karyawan</span>
                             </a>
                         </li>
 
 						<li class="sidebar-item <?= isActive('tugas_karyawan', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/tugas_karyawan') ?>">
-                                <i class="align-middle" data-feather="file"></i> <span class="align-middle">Tugas Karyawan</span>
+                                <i class="align-middle" data-feather="file"></i> <span class="align-middle">Objective Key Result</span>
                             </a>
                         </li>
 

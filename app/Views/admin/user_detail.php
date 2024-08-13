@@ -68,6 +68,15 @@
                                         disabled/>
                                     </div>
                                 </div>
+
+                                <!-- Inputan Jabatan -->
+                                <h5 class="card-title mt-1">Jabatan</h5>
+                                <input
+                                type="text"
+                                class="form-control"
+                                id="jabatan" name="jabatan"
+                                value="<?= esc($user['jabatan']) ?>"
+                                disabled/>
                                 
                                 <!-- Button Submit -->
                                 <div

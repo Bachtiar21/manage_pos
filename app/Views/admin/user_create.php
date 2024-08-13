@@ -69,6 +69,15 @@
                                     </div>
                                 </div>
 
+                                <!-- Inputan Jabatan -->
+                                <h5 class="card-title mt-2">Jabatan</h5>
+                                <input
+                                type="text"
+                                class="form-control"
+                                id="jabatan" name="jabatan"
+                                placeholder="Masukkan Jabatan"
+                                required/>
+
                                 <!-- Button Submit -->
                                 <div
                                 style="
