@@ -11,9 +11,18 @@ class User extends BaseController
 	public function getAllUser(): string
 	{
 		$userModel = new UserModel();
-		$data['users'] = $userModel->getKaryawan();
+		$data['users'] = $userModel->getUserWithRoles();
 
 		return view('admin/user_view', $data);
+	}
+
+	// Function for Get All Karyawan
+	public function getAllKaryawan(): string
+	{
+		$userModel = new UserModel();
+		$data['users'] = $userModel->getKaryawan();
+
+		return view('admin/karyawan_view', $data);
 	}
 
 	// Function for Get Data User By Session

@@ -83,6 +83,12 @@
 
                         <li class="sidebar-item <?= isActive('user', $currentPage) ?>">
                             <a class="sidebar-link" href="<?= base_url('/dashboard/user') ?>">
+                                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Kelola User</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?= isActive('karyawan', $currentPage) ?>">
+                            <a class="sidebar-link" href="<?= base_url('/dashboard/karyawan') ?>">
                                 <i class="align-middle" data-feather="users"></i> <span class="align-middle">Kelola Karyawan</span>
                             </a>
                         </li>

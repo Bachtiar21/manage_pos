@@ -30,6 +30,7 @@ $routes->get('/dashboard/user/update/(:segment)', 'User::renderPageUpdateUser/$1
 $routes->post('user/update/(:segment)', 'User::updateUser/$1', ['filter' => 'auth']);
 $routes->get('/user/delete/(:num)', 'User::deleteUser/$1', ['filter' => 'auth']);
 
+$routes->get('/dashboard/karyawan', 'User::getAllKaryawan', ['filter' => 'auth']);
 $routes->get('/dashboard/tugas_karyawan', 'KeyResult::getAllTugasKaryawan', ['filter' => 'auth']);
 
 $routes->get('/dashboard/objective/detail/(:segment)', 'Objective::getObjectiveById/$1', ['filter' => 'auth']);
