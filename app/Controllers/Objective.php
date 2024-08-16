@@ -56,7 +56,7 @@ class Objective extends BaseController
 		$data = $this->request->getPost();
 
 		if ($objectiveModel->createObjectiveModel($data)) {
-			return redirect()->to('/dashboard/objective')->with('message', 'Objective berhasil ditambahkan');
+			return redirect()->to('/dashboard/tugas_karyawan')->with('message', 'Objective berhasil ditambahkan');
 		} else {
 			return redirect()->back()->withInput()->with('errors', $userModel->errors());
 		}

@@ -12,11 +12,11 @@ class RatingOutputModel extends Model
 
     public function getAllRatingOutput()
     {
-        return $this->db->table('users')
+        return $this->db->table($this->table)
             ->select('users.nama_user, key_results.key_result, rating_outputs.*')
-            ->join('key_results', 'users.id_user = key_results.id_assignor', 'inner')
-            ->join('rating_outputs', 'key_results.id_kr = rating_outputs.id_kr', 'inner')
-            ->where('users.id_role', 2)
+            ->join('key_results', 'key_results.id_kr = rating_outputs.id_kr', 'inner')
+            ->join('objectives', 'objectives.id_objective = key_results.id_objective', 'inner')
+            ->join('users', 'users.id_user = objectives.id_user', 'inner')
             ->get()
             ->getResultArray();
     }

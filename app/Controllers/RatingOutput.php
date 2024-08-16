@@ -18,7 +18,7 @@ class RatingOutput extends BaseController
 	public function getAllRatingOuput() : string
 	{
 		$roModel = new RatingOutputModel();
-		$data['rating_outputs'] = $roModel->findAll();
+		$data['rating_outputs'] = $roModel->getAllRatingOutput();
 
 		return view('admin/rekap_rate_view', $data);
 	}

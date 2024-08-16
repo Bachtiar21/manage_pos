@@ -159,9 +159,9 @@ class KeyResult extends BaseController
 		// Ambil key result yang di-assign
 		$keyResult = $krModel->find($id);
 
-		// Hitung data Q1 dan Q2
-		$output_target_q1 = ((($keyResult['target_q1'] / $keyResult['progress_q1']) * 100) * 60 >= 60) ? "60.00" : ((($keyResult['target_q1'] / $keyResult['progress_q1']) * 100) * 60);
-		$output_target_q2 = ((($keyResult['target_q2'] / $keyResult['progress_q2']) * 100) * 60 >= 60) ? "60.00" : ((($keyResult['target_q2'] / $keyResult['progress_q2']) * 100) * 60);
+		// Hitung Output Target Q1 dan Q2
+		$output_target_q1 = min(((($keyResult['progress_q1'] / $keyResult['target_q1']) * 100) * 0.6), 60);
+		$output_target_q2 = min(((($keyResult['progress_q2'] / $keyResult['target_q2']) * 100) * 0.6), 60);
 
 		// Buat data untuk dimasukkan ke dalam tabel rating_outputs
 		$ratingOutputData = [
@@ -175,30 +175,21 @@ class KeyResult extends BaseController
 			// Ambil ID dari data rating_outputs yang baru saja dimasukkan
 			$roId = $roModel->getInsertID();
 
-			// Hitung rating_value_q1 dan rating_value_q2 berdasarkan ID yang baru saja dimasukkan
-			$rating_value_q1 = ((($data['assignor_rate_q1'] * 10) + 60) * 0.4 < 25) ? "" : ((($data['assignor_rate_q1'] * 10) + 60) * 0.4);
-			$rating_value_q2 = ((($data['assignor_rate_q2'] * 10) + 60) * 0.4 < 25) ? "" : ((($data['assignor_rate_q2'] * 10) + 60) * 0.4);
+			// Hitung Rating Value Q1 dan Q2
+			$rating_value_q1 = max(((($data['assignor_rate_q1'] * 10) + 60) * 0.4), 25);
+			$rating_value_q2 = max(((($data['assignor_rate_q2'] * 10) + 60) * 0.4), 25);
 
-			// Hitung okr_score_q1 dan okr_score_q2
-			$okr_score_q1 = $output_target_q1 + $rating_value_q1;
-			$okr_score_q2 = $output_target_q2 + $rating_value_q2;
+			// Hitung OKR Score Q1 dan Q2
+			$okr_score_q1 = min($output_target_q1 + $rating_value_q1, 100);
+			$okr_score_q2 = min($output_target_q2 + $rating_value_q2, 100);
 
 			// Update rating_value_q1, rating_value_q2, okr_score_q1, dan okr_score_q2 berdasarkan ID yang baru saja dimasukkan
-			if ($keyResult['unit_target'] !== "Rupiah" || $keyResult['unit_target'] !== "Laporan") {
-				$roModel->update($roId, [
-					'rating_value_q1' => $rating_value_q1,
-					'rating_value_q2' => $rating_value_q2,
-					'okr_score_q1' => "",
-					'okr_score_q2' => "",
-				]);
-			} else {
-				$roModel->update($roId, [
-					'rating_value_q1' => $rating_value_q1,
-					'rating_value_q2' => $rating_value_q2,
-					'okr_score_q1' => $okr_score_q1,
-					'okr_score_q2' => $okr_score_q2,
-				]);
-			}
+			$roModel->update($roId, [
+				'rating_value_q1' => $rating_value_q1,
+				'rating_value_q2' => $rating_value_q2,
+				'okr_score_q1' => $okr_score_q1,
+				'okr_score_q2' => $okr_score_q2,
+			]);
 
 			// Update data di tabel key_results
 			if ($krModel->updateKeyResultsModel($id, $data)) {

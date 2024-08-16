@@ -16,16 +16,40 @@ class Auth extends BaseController
 	{
 		$authModel = new AuthModel();
 
+		// Mengambil data dari request
+		$nama_user = $this->request->getVar('nama_user');
+		$username = $this->request->getVar('username');
+		$password = $this->request->getVar('password');
+		$no_hp = $this->request->getVar('no_hp');
+		$tgl_lahir = $this->request->getVar('tgl_lahir');
+		$jabatan = $this->request->getVar('jabatan');
+		$kode_angkatan = $this->request->getVar('kode_angkatan');
+		
+		// Ambil 2 digit terakhir dari tahun lahir
+		$tahun_lahir = date('y', strtotime($tgl_lahir));
+		
+		// Mengambil nomor urut kepegawaian terakhir dari database
+		// Misalnya kita cek urutan terakhir berdasarkan NIPPOS
+		$lastUser = $authModel->orderBy('id_user', 'DESC')->first();
+		$lastNIPPOS = isset($lastUser['id_user']) ? substr($lastUser['id_user'], -3) : '000';
+		$nextSequence = str_pad(intval($lastNIPPOS) + 1, 3, '0', STR_PAD_LEFT);
+
+		// Membuat id_user sesuai dengan aturan NIPPOS
+		$id_user = '9' . $tahun_lahir . $kode_angkatan . $nextSequence;
+
+		// Menggabungkan semua data
 		$data = [
-			'nama_user' => $this->request->getVar('nama_user'),
-			'username' => $this->request->getVar('username'),
-			'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-			'no_hp' => $this->request->getVar('no_hp'),
-			'tgl_lahir' => $this->request->getVar('tgl_lahir'),
-			'kode_angkatan' => $this->request->getVar('kode_angkatan'),
+			'id_user' => $id_user,
+			'nama_user' => $nama_user,
+			'username' => $username,
+			'password' => $password,
+			'no_hp' => $no_hp,
+			'tgl_lahir' => $tgl_lahir,
+			'jabatan' => $jabatan,
 			'id_role' => 2,
 		];
 
+		// Insert data ke database
 		if ($authModel->insert($data)) {
 			return redirect()->to('login')->with('success', 'Registrasi berhasil. Silakan login.');
 		} else {
@@ -43,16 +67,19 @@ class Auth extends BaseController
 	{
 		$session = session();
 		$authModel = new AuthModel();
-		$username = $this->request->getVar('username');
+		$usernameOrId = $this->request->getVar('username'); // Bisa username atau id_user
 		$password = $this->request->getVar('password');
 
-		$user = $authModel->where('username', $username)->first();
+		// Cari pengguna berdasarkan username atau id_user
+		$user = $authModel->where('username', $usernameOrId)
+						->orWhere('id_user', $usernameOrId)
+						->first();
 
 		if ($user) {
 			$pass = $user['password'];
 			$authenticatePassword = password_verify($password, $pass);
 			if ($authenticatePassword) {
-				// Save user data in cookies
+				// Simpan data user dalam cookies
 				$cookie = [
 					'name'   => 'user_data',
 					'value'  => json_encode([
@@ -65,7 +92,7 @@ class Auth extends BaseController
 				helper('cookie');
 				set_cookie($cookie);
 
-				// Set user data in session
+				// Set data user dalam session
 				$ses_data = [
 					'id_user' => $user['id_user'],
 					'username' => $user['username'],
@@ -79,7 +106,7 @@ class Auth extends BaseController
 				return redirect()->to('/login');
 			}
 		} else {
-			$session->setFlashdata('msg', 'Username tidak ditemukan');
+			$session->setFlashdata('msg', 'Username atau ID User tidak ditemukan');
 			return redirect()->to('/login');
 		}
 	}

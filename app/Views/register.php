@@ -37,6 +37,10 @@
     										<label class="form-label">Password</label>
     										<input class="form-control form-control-lg" type="password" id="password" name="password" placeholder="Masukkan Password" />
     									</div>
+										<div class="mb-3">
+    										<label class="form-label">Jabatan</label>
+    										<input class="form-control form-control-lg" type="jabatan" id="jabatan" name="jabatan" placeholder="Masukkan Jabatan" />
+    									</div>
 										<div class="row">
 											<div class="col-md-6 mb-3">
 												<label class="form-label">Tanggal Lahir</label>
@@ -48,7 +52,7 @@
 											</div>
 										</div>
     									<div class="d-grid gap-2 mt-3">
-    										<button type="submit" class="btn btn-lg btn-primary" style="background-color: #182C61;">Buat Akun</button>
+    										<button id="registerButton" type="submit" class="btn btn-lg btn-primary" style="background-color: #182C61;">Buat Akun</button>
     									</div>
     								</form>
     							</div>
@@ -64,4 +68,5 @@
     </main>
 
     <?= $this->include('auth/footer-register') ?>
+	<script src="<?= base_url('js/auth/register.js') ?>"></script>
     <!-- Content Register End -->

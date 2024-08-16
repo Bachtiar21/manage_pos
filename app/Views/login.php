@@ -21,7 +21,7 @@
 								<form action="<?= site_url('auth/attemptLogin'); ?>" method="post">
 									<div class="mb-3">
 										<label class="form-label">Username</label>
-										<input class="form-control form-control-lg" type="text" id="username" name="username" placeholder="Masukkan Username" />
+										<input class="form-control form-control-lg" type="text" id="username" name="username" placeholder="Masukkan Username/NIPPOS" />
 									</div>
 									<div class="mb-3">
 										<label class="form-label">Password</label>
