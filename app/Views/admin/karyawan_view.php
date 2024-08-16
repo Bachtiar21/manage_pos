@@ -33,9 +33,11 @@
                                     <thead>
                                         <tr style="text-align: center; vertical-align: middle">
                                             <th hidden></th>
+                                            <th>NIP</th>
                                             <th>Nama</th>
                                             <th>Nomor HP</th>
                                             <th>Jabatan</th>
+                                            <th>Tanggal Lahir</th>
                                             <th>Username</th>
                                             <th>Password</th>
                                             <th>Action</th>
@@ -48,6 +50,9 @@
                                             <tr>
                                                 <td hidden></td>
                                                 <td>
+                                                    <?= $user['id_user'] ?>
+                                                </td>
+                                                <td>
                                                     <?= $user['nama_user'] ?>
                                                 </td>
                                                 <td>
@@ -55,6 +60,9 @@
                                                 </td>
                                                 <td>
                                                     <?= $user['jabatan'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $user['tgl_lahir'] ?>
                                                 </td>
                                                 <td>
                                                     <?= $user['username'] ?>
