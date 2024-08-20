@@ -51,6 +51,11 @@
 												<input class="form-control form-control-lg" type="text" id="kode_angkatan" name="kode_angkatan" placeholder="Masukkan Kode Angkatan" />
 											</div>
 										</div>
+										<div class="mb-3">
+    										<label class="form-label">Nomor Urut Pegawai</label>
+    										<input class="form-control form-control-lg" type="number" id="no_urut" name="no_urut" placeholder="Masukkan Nomor Urut Pegawai" />
+    									</div>
+										<hr class="mt-3">
     									<div class="d-grid gap-2 mt-3">
     										<button id="registerButton" type="submit" class="btn btn-lg btn-primary" style="background-color: #182C61;">Buat Akun</button>
     									</div>

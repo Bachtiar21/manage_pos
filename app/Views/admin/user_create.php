@@ -69,6 +69,17 @@
                                     </div>
                                 </div>
 
+                                <!-- Inputan Tanggal Lahir -->
+                                <h5 class="card-title mt-2">Tanggal Lahir</h5>
+                                <input
+                                type="date"
+                                class="form-control"
+                                id="tgl_lahir" name="tgl_lahir"
+                                placeholder="Masukkan Tanggal Lahir"
+                                required/>
+
+                                <h5 class="card-title mt-4">Untuk Field Di Bawah Hanya Diisi Oleh Karyawan</h5>
+
                                 <!-- Inputan Jabatan -->
                                 <h5 class="card-title mt-2">Jabatan</h5>
                                 <input
@@ -76,7 +87,30 @@
                                 class="form-control"
                                 id="jabatan" name="jabatan"
                                 placeholder="Masukkan Jabatan"
-                                required/>
+                                />
+
+                                <div class="row mt-1">
+                                    <div class="col-md-6">
+                                        <!-- Inputan Kode Angkatan -->
+                                        <h5 class="card-title mt-2">Kode Angkatan</h5>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            id="kode_angkatan" name="kode_angkatan"
+                                            placeholder="Masukkan Kode Angkatan"
+                                            />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Inputan Nomor Urut Pegawai -->
+                                        <h5 class="card-title mt-2">Nomor Urut Pegawai</h5>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            id="no_urut" name="no_urut"
+                                            placeholder="Masukkan Nomor Urut Pegawai"
+                                            />
+                                    </div>
+                                </div>
 
                                 <!-- Button Submit -->
                                 <div

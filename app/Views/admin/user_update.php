@@ -36,7 +36,7 @@
                                         <!-- Inputan Password -->
                                         <h5 class="card-title mt-2">Password</h5>
                                         <input
-                                            type="password"
+                                            type="text"
                                             class="form-control"
                                             id="password"
                                             name="password"

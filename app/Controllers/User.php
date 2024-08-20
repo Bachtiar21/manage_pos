@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\RoleModel;
+use App\Models\AuthModel;
 
 class User extends BaseController
 {
@@ -70,7 +71,10 @@ class User extends BaseController
 
 		$role = $roleModel->find($user['id_role']);
 		$user['role_name'] = $role ? $role['nama_role'] : '';
+		// $user['password'] = password_hash($user['password'], PASSWORD_DEFAULT);
+
 		$data['user'] = $user;
+
 		return view('admin/user_detail', $data);
 	}
 
@@ -84,13 +88,43 @@ class User extends BaseController
 
 	public function createUser()
 	{
-		$userModel = new UserModel();
-		$data = $this->request->getPost();
+		$authModel = new AuthModel();
 
-		if ($userModel->createUser($data)) {
-			return redirect()->to('/dashboard/user')->with('message', 'User berhasil ditambahkan');
+		// Mengambil data dari request
+		$nama_user = $this->request->getVar('nama_user');
+		$username = $this->request->getVar('username');
+		$password = $this->request->getVar('password');
+		$no_hp = $this->request->getVar('no_hp');
+		$tgl_lahir = $this->request->getVar('tgl_lahir');
+		$jabatan = $this->request->getVar('jabatan');
+		$kode_angkatan = $this->request->getVar('kode_angkatan');
+		$role = $this->request->getVar('id_role');
+		
+		// Ambil 2 digit terakhir dari tahun lahir
+		$tahun_lahir = date('y', strtotime($tgl_lahir));
+
+		$no_urut = $this->request->getVar('no_urut');
+
+		// Membuat id_user sesuai dengan aturan NIPPOS
+		$id_user = '9' . $tahun_lahir . $kode_angkatan . $no_urut;
+
+		// Menggabungkan semua data
+		$data = [
+			'id_user' => $id_user,
+			'nama_user' => $nama_user,
+			'username' => $username,
+			'password' => $password,
+			'no_hp' => $no_hp,
+			'tgl_lahir' => $tgl_lahir,
+			'jabatan' => $jabatan,
+			'id_role' => $role,
+		];
+
+		// Insert data ke database
+		if ($authModel->insert($data)) {
+			return redirect()->to('/dashboard/user')->with('success', 'Registrasi berhasil. Silakan login.');
 		} else {
-			return redirect()->back()->withInput()->with('errors', $userModel->errors());
+			return redirect()->back()->withInput()->with('errors', $authModel->errors());
 		}
 	}
 

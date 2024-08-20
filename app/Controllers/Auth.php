@@ -27,15 +27,11 @@ class Auth extends BaseController
 		
 		// Ambil 2 digit terakhir dari tahun lahir
 		$tahun_lahir = date('y', strtotime($tgl_lahir));
-		
-		// Mengambil nomor urut kepegawaian terakhir dari database
-		// Misalnya kita cek urutan terakhir berdasarkan NIPPOS
-		$lastUser = $authModel->orderBy('id_user', 'DESC')->first();
-		$lastNIPPOS = isset($lastUser['id_user']) ? substr($lastUser['id_user'], -3) : '000';
-		$nextSequence = str_pad(intval($lastNIPPOS) + 1, 3, '0', STR_PAD_LEFT);
+
+		$no_urut = $this->request->getVar('no_urut');
 
 		// Membuat id_user sesuai dengan aturan NIPPOS
-		$id_user = '9' . $tahun_lahir . $kode_angkatan . $nextSequence;
+		$id_user = '9' . $tahun_lahir . $kode_angkatan . $no_urut;
 
 		// Menggabungkan semua data
 		$data = [
