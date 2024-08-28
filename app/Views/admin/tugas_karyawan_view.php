@@ -117,6 +117,8 @@
                                             <th colspan="2">Progress</th>
                                             <th>Unit Progres</th>
                                             <th colspan="2">Assignor Rating</th>
+                                            <th>OKR Score Q1</th>
+                                            <th>OKR Score Q2</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -158,6 +160,12 @@
                                                 </td>
                                                 <td>
                                                     <?= isset($key_result['assignor_rate_q2']) ? $key_result['assignor_rate_q2'] : 0 ?>
+                                                </td>
+                                                <td>
+                                                    <?= isset($key_result['okr_score_q1']) ? $key_result['okr_score_q1'] : 0 ?>
+                                                </td>
+                                                <td>
+                                                    <?= isset($key_result['okr_score_q2']) ? $key_result['okr_score_q2'] : 0 ?>
                                                 </td>
                                                 <td>
                                                     <!-- Tambahkan tombol atau link aksi sesuai kebutuhan -->

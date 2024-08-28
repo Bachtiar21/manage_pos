@@ -34,9 +34,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="text-center mb-3">
+					<!-- <div class="text-center mb-3">
 						Belum Punya Akun? <a href="<?= base_url('/register') ?>"><b>Buat Akun</b></a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

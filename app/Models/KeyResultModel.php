@@ -13,9 +13,10 @@ class KeyResultModel extends Model
     // Untuk Get All
     public function getKeyResultWithAssign()
     {
-        return $this->select('key_results.*, users.nama_user, objectives.objective')
+        return $this->select('key_results.*, users.nama_user, objectives.objective, rating_outputs.okr_score_q1, rating_outputs.okr_score_q2')
             ->join('users', 'users.id_user = key_results.id_assignor')
             ->join('objectives', 'objectives.id_objective = key_results.id_objective')
+            ->join('rating_outputs', 'rating_outputs.id_kr = key_results.id_kr')
             ->findAll();
     }
 
